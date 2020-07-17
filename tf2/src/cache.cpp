@@ -275,11 +275,7 @@ bool TimeCache::insertData(const TransformStorage& new_data, std::string* error_
   }
   if (storage_it != storage_.end() && storage_it->stamp_ == new_data.stamp_)
   {
-    if (error_str)
-    {
-      *error_str = "TF_REPEATED_DATA ignoring data with redundant timestamp";
-    }
-    return false;
+    return true;
   }
   else
   {
